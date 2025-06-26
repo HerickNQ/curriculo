@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Currículo online de Herick Quevedo, desenvolvedor front-end júnior" />
+    <meta name="author" content="Herick Naimaier de Quevedo" />
+    <meta
+      name="keywords"
+      content="currículo, front-end, desenvolvedor júnior, html, css, javascript, herick quevedo" />
+    <title>Currículo | Herick Quevedo</title>
+    <link rel="icon" href="./assets/favicon.png" type="image/png" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+      :root {
+        --text-color: black;
+        --bg-color: #f0f0f0;
+        --emphasis-color: rgb(18, 60, 175);
+        --background-sheet: white;
+        --background-link: rgba(255, 174, 0, 0.267);
+        --color-text-button: orange;
+      }
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Roboto", "Cabin", Arial, Helvetica, sans-serif;
+        max-width: 800px;
+        width: 95%;
+        height: auto;
+        margin: 1rem auto;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.5s ease, color 0.5s ease;
+        line-height: 1.2;
+      }
+      .folha {
+        position: relative;
+        background-color: var(--background-sheet);
+        border-radius: 8px;
+        padding: 2rem;
+        width: 794px;
+        min-height: 1110px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+      }
+            img {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        z-index: 2;
+        border: 3px solid var(--bg-color);
+      }
+      .contato {
+        font-size: small;
+      }
+      .link {
+        display: inline-block;
+        text-decoration: none;
+        color: var(--text-color);
+        transition: color 0.5s ease, background-color 0.5s ease,
+          transform 0.5s ease;
+      }
+      .link:hover {
+        color: var(--emphasis-color);
+        background-color: var(--background-link);
+        border-radius: 8px;
+        transform: scale(1.05);
+      }
+      hr {
+        height: 0.25rem;
+        border: none;
+        background-color: var(--emphasis-color);
+      }
+      .title,
+      h1 {
+        color: var(--emphasis-color);
+        font-size: 23px;
+      }
+      h2 {
+        font-size: 18px;
+      }
+
+      li {
+        margin: 0.3rem 1rem;
+      }
+      p {
+        margin: 0.3rem auto;
+      }
+      abbr {
+        text-decoration: none;
+      }
+      .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1rem 0;
+        flex-wrap: wrap;
+      }
+      .button {
+        display: inline-block;
+        background-color: var(--emphasis-color);
+        font-size: medium;
+        border: none;
+        padding: 0.3rem;
+        border-radius: 4px;
+        color: var(--bg-color);
+        transition: transform 0.5s ease;
+      }
+      .button a {
+        color: var(--bg-color);
+        text-decoration: none;
+        transition: color 0.5s ease;
+      }
+      .button:hover a {
+        color: var(--color-text-button);
+      }
+      .button:hover {
+        transform: scale(1.1);
+        color: var(--color-text-button);
+        cursor: pointer;
+      }
+      body.dark-mode {
+        --bg-color: #1a1a1a;
+        --text-color: #fdfdfd;
+        --emphasis-color: rgb(80, 122, 240);
+        --background-sheet: #2a2a2a;
+        --background-link: rgba(150, 207, 176, 0.137);
+        --color-text-button: orange;
+      }
+      @media print {
+        .button {
+          display: none !important;
+        }
+        body.dark-mode {
+          background-color: var(--bg-color) !important;
+          color: var(--text-color) !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="button-container">
+      <button
+        class="button"
+        onclick="baixarPDF()"
+        role="button"
+        aria-label="Baixar currículo em PDF">
+        📄 Baixar Currículo em PDF
+      </button>
+      <button
+        id="dark-mode-toggle"
+        class="button"
+        role="button"
+        aria-label="Alterar modo escuro">
+        🌙 Modo Escuro
+      </button>
+    </div>
+    <div class="folha" id="cv">
+      <img src="./assets/eu.jpg" alt="Foto de Herick Quevedo" />
+      <header aria-label="Informações principais do currículo">
+        <h1>Herick Naimaier de Quevedo</h1>
+        <h2>Desenvolvedor Front-end júnior</h2>
+        <br />
+        <!--Informações de contato-->
+        <div class="contato">
+          <p>
+            📧 E-mail:
+            <a
+              href="mailto:herickquevedo7@gmail.com"
+              target="_blank"
+              class="link"
+              >herickquevedo7@gmail.com</a
+            >
+          </p>
+          <p>📱 Celular/ Whatsapp: (51) 99413-3778</p>
+          <p>
+            💼 LinkedIn:
+            <a
+              href="https://www.linkedin.com/in/herick-quevedo"
+              target="_blank"
+              class="link"
+              aria-label="Perfil no Linkedin, abre em nova aba"
+              >linkedin.com/in/herick-quevedo</a
+            >
+          </p>
+          <p>
+            💻 GitHub:
+            <a
+              href="https://github.com/HerickNQ"
+              target="_blank"
+              class="link"
+              aria-label="Perfil no GitHub, abre em nova aba"
+              >github.com/HerickNQ</a
+            >
+          </p>
+          <p>📍 Localização: Porto Alegre - RS</p>
+        </div>
+      </header>
+      <main aria-label="Conteúdo principal do currículo">
+        <!--Objetivo-->
+        <section>
+          <h2 class="title">🎯 Objetivo Profissional</h2>
+          <hr />
+          <p>
+            Atuar como desenvolvedor Front-end Júnior, aplicando meus
+            conhecimentos em HTML, CSS, JavaScript e projetos práticos, com foco
+            em aprendizado constante, criatividade e entrega de valor ao
+            usuário.
+          </p>
+        </section>
+        <!--Hards skills-->
+        <section>
+          <h2 class="title">🧠 Competências Técnicas</h2>
+          <hr />
+          <ul aria-label="Lista de de competências técnicas">
+            <li>HTML5: semântico e acessível</li>
+            <li>CSS3: responsivo, com animações e boas práticas</li>
+            <li>JavaScript: ES6+, manipulação de DOM e lógica</li>
+            <li>LocalStorage para salvar dados do usuário</li>
+            <li>Git e GitHub</li>
+            <li>Noções de UI/UX e leitura de layouts no Figma</li>
+          </ul>
+        </section>
+        <!--Softs Skills-->
+        <section>
+          <h2 class="title">🗣️ Soft Skills</h2>
+          <hr />
+          <ul aria-label="Lista de Softs Skills">
+            <li>
+              <strong>Resiliência:</strong> continuo produzindo e aprendendo
+              mesmo sob pressão e desafios pessoais.
+            </li>
+            <li>
+              <strong>Autodidatismo:</strong> desenvolvo projetos reais por
+              iniciativa própria, buscando constante evolução.
+            </li>
+            <li>
+              <strong>Organização:</strong> estruturo códigos e rotinas de
+              trabalho com foco em clareza e reaproveitamento.
+            </li>
+            <li>
+              <strong>Boa comunicação:</strong> transmito ideias de forma clara
+              e considero a experiência de quem vai usar ou ler meu trabalho.
+            </li>
+            <li>
+              <strong>Abertura a feedbacks:</strong> busco opiniões construtivas
+              para crescer como dev e pessoa.
+            </li>
+          </ul>
+        </section>
+        <!--Projetos-->
+        <section>
+          <h2 class="title">💻 Projetos</h2>
+          <hr />
+          <h3 class="subtitle">AnimeZone - Plataforma de Animes (2025)</h3>
+          <p>
+            <a
+              href="http://hericknq.github.io/animezone/"
+              target="_blank"
+              class="link"
+              aria-label="Site projeto pessoal, abre em nova aba"
+              >🌐 Acesse o projeto</a
+            >
+            |
+            <a
+              href="http://github.com/HerickNQ/animezone"
+              target="_blank"
+              class="link"
+              aria-label="Portifólio do projeto no GitHub, abre em nova aba"
+              >🔗 Repositório</a
+            >
+          </p>
+          <ul aria-label="Lista de itens feito no projeto">
+            <li>Carrossel de animes estilo Netflix (infinito)</li>
+            <li>Favoritos com LocalStorage</li>
+            <li>Responsivo e com sons interativos</li>
+          </ul>
+        </section>
+        <!--Formação-->
+        <section>
+          <h2 class="title">🎓 Formação</h2>
+          <hr />
+          <p>
+            Curso de Front-End -
+            <abbr title="Serviço Nacional de Aprendizagem Comercial"
+              >SENAC</abbr
+            >
+            (05/2025 - em andamento)
+          </p>
+          <p>
+            Tecnologia de Sistemas para Web -
+            <abbr title="Instituto Federal do Rio Grande do Sul">IFRS</abbr>
+            (07/2025 - em andamento)
+          </p>
+        </section>
+        <!--Certificados-->
+        <section>
+          <h2 class="title">📜 Certificados</h2>
+          <hr />
+          <ul>
+            <li>
+              Formação HTML Web Developer - DIO - (51h) - (04/2025) -
+              <a
+                href="https://dio.me/certificate/YVKH0LBC"
+                target="_blank"
+                class="link"
+                aria-label="Link do Certificado, abre em nova aba"
+                >Ver certificado</a
+              >
+            </li>
+          </ul>
+        </section>
+      </main>
+      <!--Idiomas-->
+      <footer aria-label="Informações de idiomas">
+        <h2 class="title">🌍 Idiomas</h2>
+        <hr />
+        <p>Português: Nativo</p>
+        <p>Inglês: Intermediário</p>
+      </footer>
+    </div>
+    <script>
+      const toggle = document.getElementById("dark-mode-toggle");
+      toggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+          toggle.textContent = "☀️ Modo Claro";
+        } else {
+          toggle.textContent = "🌙 Modo Escuro";
+        }
+      });
+    </script>
+
+    <script>
+      function baixarPDF() {
+        const elemento = document.getElementById("cv"); // a área que será convertida em PDF
+
+        const options = {
+          margin: 0.5,
+          filename: "Herick_Quevedo_FrontEnd_Junior.pdf",
+          image: { type: "jpeg", quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+        };
+
+        html2pdf().set(options).from(elemento).save();
+      }
+    </script>
+  </body>
+</html>
+<!--
+Palavras-chave: Front-end, Desenvolvedor Júnior, HTML, CSS, JavaScript, Responsivo, Git, GitHub, Figma, UI, UX, DOM, LocalStorage, Acessibilidade, Projetos, Freelancer.
+-->
