@@ -55,9 +55,11 @@
         padding: 1.5rem;
         width: 100%;
         max-width: 794px;
-        min-height: auto;
+        min-height: 1122px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
         overflow: hidden;
+        page-break-inside: auto;
+        overflow: visible;
       }
       .perfil {
         gap: 1rem;
@@ -229,6 +231,9 @@
       .em-construcao {
         font-style: italic;
         color: gray;
+      }.page-break {
+        page-break-before: always;
+        break-before: page;
       }
       @media print {
         .button {
@@ -459,6 +464,7 @@
             </ul>
           </section>
           <!--Projetos-->
+          <div class="page-break"></div>
           <section>
             <h2 class="title">💻 Projetos</h2>
             <hr />
@@ -656,7 +662,7 @@
                 const elemento = document.getElementById("cv"); // a área que será convertida em PDF
 
                 const options = {
-                  margin: 0.15,
+                  margin: 0.3,
                   filename: "Herick_Quevedo_FrontEnd_Junior.pdf",
                   image: { type: "jpeg", quality: 0.98 },
                   html2canvas: { scale: 2 },
