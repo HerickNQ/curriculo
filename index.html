@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Currículo de Herick Quevedo, Desenvolvedor Front-End Júnior com experiência prática em projetos e habilidades em HTML, CSS e JavaScript.">
+    <meta
+      name="description"
+      content="Currículo de Herick Quevedo, Desenvolvedor Front-End Júnior com experiência prática em projetos e habilidades em HTML, CSS e JavaScript."
+    />
     <meta name="author" content="Herick Naimaier de Quevedo" />
     <meta
       name="keywords"
       content="currículo, front-end, desenvolvedor júnior, html, css, javascript, herick quevedo"
     />
-    <title>Currículo | Herick Quevedo | Front-End Júnior</title>
+    <title>Herick Quevedo | Desenvolvedor Front-End</title>
     <link rel="icon" href="./assets/favicon.png" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
@@ -21,6 +28,7 @@
         --background-sheet: white;
         --background-link: rgba(255, 174, 0, 0.267);
         --color-text-button: orange;
+        --fundo-cards: #ffffffcc;
       }
       * {
         padding: 0;
@@ -37,30 +45,41 @@
         color: var(--text-color);
         transition: background-color 0.5s ease, color 0.5s ease;
         line-height: 1.2;
+        font-size: clamp(0.9rem, 2.5vw, 1rem);
+        padding: auto 1rem;
       }
       .folha {
         position: relative;
         background-color: var(--background-sheet);
         border-radius: 8px;
-        padding: 2rem;
-        width: 794px;
-        min-height: 1110px;
+        padding: 1.5rem;
+        width: 100%;
+        max-width: 794px;
+        min-height: auto;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
         overflow: hidden;
       }
-      img {
-        position: absolute;
-        top: 2rem;
-        right: 2rem;
+      .perfil {
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .eu-imagem {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+      }
+      .eu {
         width: 180px;
         height: 180px;
         border-radius: 50%;
         object-fit: cover;
-        z-index: 2;
         border: 3px solid var(--bg-color);
       }
       .contato {
-        font-size: small;
+        font-size: 0.9rem;
       }
       .link {
         display: inline-block;
@@ -79,11 +98,15 @@
         height: 0.25rem;
         border: none;
         background-color: var(--emphasis-color);
+        margin-bottom: 0.6rem;
+      }
+      .title {
+        margin-top: 0.6rem;
       }
       .title,
       h1 {
         color: var(--emphasis-color);
-        font-size: 23px;
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
       }
       h2 {
         font-size: 18px;
@@ -97,6 +120,54 @@
       }
       abbr {
         text-decoration: none;
+      }
+      .cards-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+      .card {
+        border: 1px solid var(--emphasis-color);
+        border-radius: 8px;
+        padding: 1rem;
+        background-color: var(--fundo-cards);
+        transition: transform 0.3s ease, box-shadow 0.3 ease;
+      }
+      .card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      .card h3 {
+        margin-bottom: 0.3rem;
+        color: var(--emphasis-color);
+      }
+      .card ul {
+        margin-top: 0.3rem;
+      }
+      .card-links {
+        margin-top: 0.5rem;
+      }
+      .card-links a {
+        margin-right: 1rem;
+      }
+      .experiencia {
+        margin-bottom: 1.5rem;
+      }
+      .experiencia-header {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+      }
+      .expereicnia-header .empresa {
+        font-weight: normal;
+        color: #555;
+        margin-left: 0.5rem;
+      }
+      .experiencia-header .periodo {
+        display: block;
+        font-size: 0.9rem;
+        color: #777;
+        margin-top: 0.2rem;
       }
       .button-container {
         display: flex;
@@ -135,6 +206,29 @@
         --background-sheet: #2a2a2a;
         --background-link: rgba(150, 207, 176, 0.137);
         --color-text-button: orange;
+        --fundo-cards: #2a2a2a;
+      }
+      #whatsapp {
+        color: #25d366;
+      }
+      #linkedin {
+        color: #0077b5;
+      }
+      #gmail,
+      #maps {
+        vertical-align: middle;
+      }
+      #whatsapp,
+      #linkedin,
+      #gmail,
+      #maps,
+      #github {
+        width: 15px;
+        margin-right: 0.4rem;
+      }
+      .em-construcao {
+        font-style: italic;
+        color: gray;
       }
       @media print {
         .button {
@@ -143,6 +237,34 @@
         body.dark-mode {
           background-color: var(--bg-color) !important;
           color: var(--text-color) !important;
+        }
+      }
+      @media (max-width: 480px) {
+        .button-container {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .button {
+          width: 100%;
+        }
+      }
+      @media (min-width: 600px) {
+        .folha {
+          position: relative;
+        }
+        .eu-imagem {
+          position: absolute;
+          top: 2rem;
+          right: 2rem;
+        }
+        .qr-code {
+          position: absolute;
+          top: 13rem;
+          left: 2rem;
+          border-radius: 8px;
+        }
+        .cards-container {
+          grid-template-columns: 1fr 1fr;
         }
       }
     </style>
@@ -167,321 +289,389 @@
       </button>
     </div>
     <div class="folha" id="cv">
-      <img src="./assets/eu.jpg" alt="Foto de perfil Herick Quevedo sorrindo" />
-      <header aria-label="Informações principais do currículo">
-        <h1>Herick Naimaier de Quevedo</h1>
-        <h2>Desenvolvedor Front-end júnior</h2>
-        <br />
-        <!--Informações de contato-->
-        <div class="contato">
-          <p>
-            📧 E-mail:
-            <a
-              href="mailto:herickquevedo7@gmail.com"
-              target="_blank"
-              class="link"
-              >herickquevedo7@gmail.com</a
-            >
-          </p>
-          <p>📱 Celular/ Whatsapp: (51) 99413-3778</p>
-          <p>
-            💼 LinkedIn:
-            <a
-              href="https://www.linkedin.com/in/herick-quevedo"
-              target="_blank"
-              class="link"
-              aria-label="Perfil no Linkedin, abre em nova aba"
-              >linkedin.com/in/herick-quevedo</a
-            >
-          </p>
-          <p>
-            💻 GitHub:
-            <a
-              href="https://github.com/HerickNQ"
-              target="_blank"
-              class="link"
-              aria-label="Perfil no GitHub, abre em nova aba"
-              >github.com/HerickNQ</a
-            >
-          </p>
-          <p>📍 Localização: Porto Alegre - RS</p>
+      <div class="perfil">
+        <div class="eu-imagem">
+          <img
+            class="eu"
+            src="./assets/eu.jpg"
+            alt="Foto de perfil Herick Quevedo sorrindo"
+          />
         </div>
-      </header>
-      <main aria-label="Conteúdo principal do currículo">
-        <!--Objetivo-->
-        <section>
-          <h2 class="title">🎯 Objetivo Profissional</h2>
-          <hr />
-          <p>
-            Atuar como desenvolvedor Front-end Júnior, aplicando meus
-            conhecimentos em HTML, CSS, JavaScript e projetos práticos, com foco
-            em aprendizado constante, criatividade e entrega de valor ao
-            usuário.
-          </p>
-        </section>
-        <!--Hards skills-->
-        <section>
-          <h2 class="title">🧠 Competências Técnicas</h2>
-          <hr />
-          <ul aria-label="Lista de de competências técnicas">
-            <li>HTML5: semântico e acessível</li>
-            <li>CSS3: responsivo, com animações e boas práticas</li>
-            <li>JavaScript: ES6+, manipulação de DOM e lógica</li>
-            <li>LocalStorage para salvar dados do usuário</li>
-            <li>Git e GitHub</li>
-            <li>Noções de UI/UX e leitura de layouts no Figma</li>
-          </ul>
-        </section>
-        <!--Softs Skills-->
-        <section>
-          <h2 class="title">🗣️ Soft Skills</h2>
-          <hr />
-          <ul aria-label="Lista de Softs Skills">
-            <li>
-              <strong>Resiliência:</strong> continuo produzindo e aprendendo
-              mesmo sob pressão e desafios pessoais.
-            </li>
-            <li>
-              <strong>Autodidatismo:</strong> desenvolvo projetos reais por
-              iniciativa própria, buscando constante evolução.
-            </li>
-            <li>
-              <strong>Organização:</strong> estruturo códigos e rotinas de
-              trabalho com foco em clareza e reaproveitamento.
-            </li>
-            <li>
-              <strong>Boa comunicação:</strong> transmito ideias de forma clara
-              e considero a experiência de quem vai usar ou ler meu trabalho.
-            </li>
-            <li>
-              <strong>Abertura a feedbacks:</strong> busco opiniões construtivas
-              para crescer como dev e pessoa.
-            </li>
-          </ul>
-        </section>
-        <!--Projetos-->
-        <section>
-          <h2 class="title">💻 Projetos</h2>
-          <hr />
-          <h3 class="subtitle">AnimeZone - Plataforma de Animes (2025)</h3>
-          <p>
-            <a
-              href="http://hericknq.github.io/animezone/"
-              target="_blank"
-              class="link"
-              aria-label="Site projeto pessoal, abre em nova aba"
-              >🌐 Acesse o projeto</a
-            >
-            |
-            <a
-              href="http://github.com/HerickNQ/animezone"
-              target="_blank"
-              class="link"
-              aria-label="Portifólio do projeto no GitHub, abre em nova aba"
-              >🔗 Repositório</a
-            >
-          </p>
-          <ul aria-label="Lista de itens feito no projeto">
-            <li>Carrossel de animes estilo Netflix (infinito)</li>
-            <li>Favoritos com LocalStorage</li>
-            <li>Responsivo e com sons interativos</li>
-          </ul>
-        </section>
-        <!--Experiencias profissionais-->
-        <section>
-          <h2 class="title">🧾 Experiência Profissional</h2>
-          <hr />
-          <p>
-            <strong>Auxiliar Administrativo</strong> – Terceirizada Tudo Fácil /
-            IGP
-          </p>
-          <p><em>Porto Alegre - RS | 01/2025 – Atual</em></p>
-          <ul>
-            <li>
-              Atendimento ao público para emissão de identidades no setor IGP.
-            </li>
-            <li>
-              Conferência detalhada dos dados do sistema com os documentos
-              físicos.
-            </li>
-            <li>
-              Coleta de foto, assinatura e digitais para emissão de identidade.
-            </li>
-            <li>
-              Resolução de problemas e orientação ao cliente sobre procedimentos
-              corretivos.
-            </li>
-            <li>
-              Atuação em equipe (9 pessoas por turno), com foco em agilidade e
-              organização.
-            </li>
-            <li>
-              Trabalho no turno da manhã, o mais movimentado, com encaixes de
-              atendimentos extras.
-            </li>
-          </ul>
-          <p>
-            <br />
-            <strong
-              >Expedidor de Mercadorias (com funções exercidas de Estoquista e
-              Supervisor)</strong
-            >
-            – SMART Distribuidora de Medicamentos
-          </p>
-          <p><em>Viamão - RS | 06/2024 – 01/2025</em></p>
-          <ul>
-            <li>
-              Atuação na expedição e controle de pedidos com alto volume,
-              exigindo precisão e agilidade — habilidades úteis na organização
-              de código e lógica de programação.
-            </li>
-            <li>
-              Experiência como estoquista, garantindo armazenagem correta de
-              medicamentos e minimizando erros — reforçando atenção aos
-              detalhes.
-            </li>
-            <li>
-              Exerceu função prática de liderança, coordenando uma equipe de 5
-              pessoas, promovendo aumento significativo na produtividade do
-              setor.
-            </li>
-            <li>
-              Trabalho sob pressão em ambiente de alta demanda, desenvolvendo
-              resiliência, foco e capacidade de resolução rápida de problemas.
-            </li>
-          </ul>
+        <header aria-label="Informações principais do currículo">
+          <h1>Herick Naimaier de Quevedo</h1>
+          <h2>Desenvolvedor Front-end júnior</h2>
           <br />
-          <p><strong>Balconista de Padaria</strong> – Supermercado Fachini</p>
-          <p><em>Viamão - RS | 10/2023 – 05/2024</em></p>
-          <ul>
-            <li>
-              Atendimento ao público em ambiente de alta demanda, desenvolvendo
-              empatia e agilidade.
-            </li>
-            <li>
-              Fatiamento de frios com precisão conforme pedido do cliente,
-              reforçando atenção aos detalhes.
-            </li>
-            <li>
-              Cumprimento rigoroso de horários e organização das tarefas
-              diárias.
-            </li>
-            <li>
-              Responsável pela limpeza do setor, manutenção dos freezers e
-              controle de validade dos produtos.
-            </li>
-            <li>
-              Prevenção de desperdício e zelo pela qualidade dos alimentos
-              vendidos.
-            </li>
-          </ul>
-          <br>
-          <p>
-            <strong>Assistente Administrativo / Analista de Faturamento</strong>
-            – Exatus Administração de Serviços
-          </p>
-          <p><em>Porto Alegre - RS | 07/2022 – 10/2023</em></p>
-          <ul>
-            <li>
-              Lançamento e controle de benefícios (VT e VA) no sistema, com
-              conferência detalhada por funcionário.
-            </li>
-            <li>
-              Recrutamento e seleção: entrevistas, coleta de documentos e
-              cadastramento de novos colaboradores.
-            </li>
-            <li>
-              Organização de documentação para prestação de contas aos órgãos
-              públicos — exigindo atenção e rigor com prazos.
-            </li>
-            <li>
-              Elaboração de planilhas em Excel para controle financeiro e
-              operacional.
-            </li>
-            <li>
-              Emissão de notas fiscais e envio de documentação para reajuste
-              contratual conforme normas sindicais.
-            </li>
-            <li>
-              Apoio jurídico com fornecimento de documentos para processos
-              trabalhistas, como folhas de ponto, contracheques e comprovantes
-              diversos.
-            </li>
-          </ul>
-        </section>
-        <!--Formação-->
-        <section>
-          <h2 class="title">🎓 Formação</h2>
-          <hr />
-          <p>
-            Curso de Front-End -
-            <abbr title="Serviço Nacional de Aprendizagem Comercial"
-              >SENAC</abbr
-            >
-            (05/2025 - em andamento)
-          </p>
-          <p>
-            Tecnologia de Sistemas para Web -
-            Instituto Federal do Rio Grande do Sul (IFRS)
-            (07/2025 - em andamento)
-          </p>
-        </section>
-        <!--Certificados-->
-        <section>
-          <h2 class="title">📜 Certificados</h2>
-          <hr />
-          <ul>
-            <li>
-              Formação HTML Web Developer - DIO - (51h) - (04/2025) -
+          <!--Informações de contato-->
+          <div class="contato">
+            <p>
+              <img src="./assets/gmail.svg" id="gmail" alt="Ícone Gmail" />
+              E-mail:
               <a
-                href="https://dio.me/certificate/YVKH0LBC"
+                href="mailto:herickquevedo7@gmail.com"
                 target="_blank"
                 class="link"
-                aria-label="Link do Certificado, abre em nova aba"
-                >Ver certificado</a
+                >herickquevedo7@gmail.com</a
               >
-            </li>
-          </ul>
-        </section>
-      </main>
-      <!--Idiomas-->
-      <footer aria-label="Informações de idiomas">
-        <h2 class="title">🌍 Idiomas</h2>
-        <hr />
-        <p>Português: Nativo</p>
-        <p>Inglês: Intermediário</p>
-      </footer>
-    </div>
-    <script>
-      const toggle = document.getElementById("dark-mode-toggle");
-      toggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
+            </p>
+            <p>
+              <i class="fab fa-whatsapp" id="whatsapp"></i> Celular:
+              <a
+                href="https://wa.me/5551994133778?text=Olá%20Herick%2C%20vi%20seu%20currículo%20e%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade."
+                target="_blank"
+                class="link"
+                aria-label="Abrir conversa no WhatsApp com Herick Quevedo"
+                >(51)
+              99413-3778 (Enviar menssagem)</a
+              >
+            </p>
+            <p>
+              <i class="fab fa-linkedin" id="linkedin"></i> LinkedIn:
+              <a
+                href="https://www.linkedin.com/in/herick-quevedo"
+                target="_blank"
+                class="link"
+                aria-label="Perfil no Linkedin, abre em nova aba"
+                >linkedin.com/in/herick-quevedo</a
+              >
+            </p>
+            <p>
+              <i class="fab fa-github" id="github"></i> GitHub:
+              <a
+                href="https://github.com/HerickNQ"
+                target="_blank"
+                class="link"
+                aria-label="Perfil no GitHub, abre em nova aba"
+                >github.com/HerickNQ</a
+              >
+            </p>
+            <p>
+              <img
+                src="./assets/map-pin-red.svg"
+                id="maps"
+                alt="Ícone de localização"
+              />
+              Porto Alegre | RS
+            </p>
+          </div>
+        </header>
+        <main aria-label="Conteúdo principal do currículo">
+          <!--Objetivo-->
+          <section>
+            <h2 class="title">🎯 Resumo Profissional</h2>
+            <hr />
+            <p>
+              Desenvolvedor Front-End Júnior com foco em projetos responsivos e
+              acessíveis. Experiência prática com HTML, CSS, JavaScript, Git e
+              GitHub. Autodidata, organizado e comprometido com a entrega de
+              valor ao usuário.
+            </p>
+          </section>
+          <!--Hards skills-->
+          <section>
+            <h2 class="title">🧠 Competências Técnicas</h2>
+            <hr />
+            <ul aria-label="Lista de de competências técnicas">
+              <li>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                  alt="HTML5"
+                  width="15"
+                />
+                HTML5: semântico e acessível
+              </li>
+              <li>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                  alt="CSS3"
+                  width="15"
+                />
+                CSS3: responsivo, com animações e boas práticas
+              </li>
+              <li>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                  alt="JS"
+                  width="15"
+                />
+                JavaScript (ES6+): manipulação de DOM e lógica
+              </li>
+              <li>
+                <i class="fa-solid fa-database" style="color: #6c63ff"></i>
+                LocalStorage para salvar dados do usuário
+              </li>
+              <li>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                  alt="Git"
+                  width="15"
+                />
+                Git: versionamento de código e controle de branches
+              </li>
+              <li>
+                <i class="fab fa-github" id="github"></i> GitHub: hospedagem de
+                projetos e colaboração
+              </li>
+              <li>
+                <i class="fa-solid fa-object-group" style="color: #f39c12"></i>
+                Noções de UI/UX e leitura de layouts no Figma
+              </li>
+            </ul>
+          </section>
+          <!--Softs Skills-->
+          <section>
+            <h2 class="title">🗣︄ Soft Skills</h2>
+            <hr />
+            <ul aria-label="Lista de Softs Skills">
+              <li>
+                <strong>Resiliência:</strong> continuo produzindo e aprendendo
+                mesmo sob pressão e desafios pessoais.
+              </li>
+              <li>
+                <strong>Autodidatismo:</strong> desenvolvo projetos reais por
+                iniciativa própria, buscando constante evolução.
+              </li>
+              <li>
+                <strong>Organização:</strong> estruturo códigos e rotinas de
+                trabalho com foco em clareza e reaproveitamento.
+              </li>
+              <li>
+                <strong>Boa comunicação:</strong> transmito ideias de forma
+                clara e considero a experiência de quem vai usar ou ler meu
+                trabalho.
+              </li>
+              <li>
+                <strong>Abertura a feedbacks:</strong> busco opiniões
+                construtivas para crescer como dev e pessoa.
+              </li>
+              <li>
+                <strong>Trabalho em equipe:</strong> experiência colaborando e
+                liderando equipes, com foco em resultado, empatia e organização.
+              </li>
+              <li>
+                <strong>Gestão de tempo:</strong> habilidade em priorizar
+                tarefas, cumprir prazos e manter qualidade mesmo sob pressão.
+              </li>
+              <li>
+                <strong>Adaptabilidade:</strong> facilidade em aprender novas
+                ferramentas, mudar de função e responder rapidamente a novos
+                desafios.
+              </li>
+            </ul>
+          </section>
+          <!--Projetos-->
+          <section>
+            <h2 class="title">💻 Projetos</h2>
+            <hr />
+            <div class="cards-container">
+              <div class="card">
+                <h3 class="subtitle">AnimeZone</h3>
+                <p>Plataforma de Animes com carrossel, favoritos e sons.</p>
+                <ul aria-label="Lista de itens feito no projeto">
+                  <li>Carrossel de animes estilo Netflix (infinito)</li>
+                  <li>Favoritos com LocalStorage</li>
+                  <li>Responsivo e com sons interativos</li>
+                </ul>
+                <div class="card-links">
+                  <a
+                    href="http://hericknq.github.io/animezone/"
+                    target="_blank"
+                    class="link"
+                    aria-label="Site projeto pessoal, abre em nova aba"
+                    >🌐 Acesse o projeto</a
+                  >
+                  |
+                  <a
+                    href="http://github.com/HerickNQ/animezone"
+                    target="_blank"
+                    class="link"
+                    aria-label="Portifólio do projeto no GitHub, abre em nova aba"
+                    >🔗 Repositório</a
+                  >
+                </div>
+              </div>
+              <div class="card">
+                <h3>FakeStore (em desenvolvimento)</h3>
+                <p>
+                  Projeto de e-commerce responsivo com foco em exibição de
+                  produtos, filtro por categorias e carrinho de compras com
+                  JavaScript.
+                </p>
+                <ul>
+                  <li>Planejado com HTML, CSS, JavaScript</li>
+                  <li>Consumo de API falsa de produtos</li>
+                  <li>Design inspirado em e-commerces modernos</li>
+                </ul>
+                <div class="card-links">
+                  <span class="em-construcao"> Em construção</span>
+                </div>
+              </div>
+              <!-- Mais projetos -->
+            </div>
+          </section>
+          <!--Experiencias profissionais-->
+          <section>
+            <h2 class="title">🧾 Experiência Profissional</h2>
+            <hr />
+            <div class="experiencia">
+              <div class="experiencia-header">
+                <strong>Auxiliar Administrativo</strong>
+                <span class="empresa"> - Tudo Fácil / IGP</span>
+                <span class="periodo"
+                  >📍 Porto Alegre - RS | 01/2025 - Atual</span
+                >
+              </div>
+              <ul>
+                <li>
+                  Atendimento ao público no setor de identidades (IGP), com foco
+                  em agilidade e precisão.
+                </li>
+                <li>
+                  Conferência de dados, coleta biométrica e orientação de
+                  clientes.
+                </li>
+                <li>
+                  Trabalho em equipe (9 pessoas/turno) sob alta demanda
+                  desenvolvendo organização e foco em qualidade.
+                </li>
+              </ul>
+            </div>
+            <div class="experiencia">
+              <div class="experiencia-header">
+                <strong>Expedidor de Mercadorias</strong>
+                <span class="empresa"
+                  >- SMART Distribuidora de Medicamentos
+                </span>
+                <span class="periodo">📍 Viamão - RS | 06/2024 - 01/2025</span>
+              </div>
+              <ul>
+                <li>
+                  Controle de pedidos e organização de estoque com foco em
+                  precisão e agilidade.
+                </li>
+                <li>
+                  Atuação como líder de equipe (5 pessoas), promovendo aumento
+                  na produtividade.
+                </li>
+                <li>
+                  Experiência sob pressão em ambientes exigentes fortalecendo
+                  resiliência e raciocínio rápido.
+                </li>
+              </ul>
+            </div>
+            <div class="experiencia">
+              <div class="experiencia-header">
+                <strong>Balconista de Padaria</strong>
+                <span class="empresa">- Supermercado Fachini</span>
+                <span class="periodo">📍 Viamão - RS | 10/2023 - 05/2024</span>
+              </div>
+              <ul>
+                <li>Atendimento ágil e empático ao público.</li>
+                <li>
+                  Organização do setor, controle de validade e zelo pela
+                  qualidade reforçando atenção aos detalhes.
+                </li>
+              </ul>
+            </div>
+            <div class="experiencia">
+              <div class="experiencia-header">
+                <strong
+                  >Assistente Administrativo / Analista de Faturamento</strong
+                >
+                <span class="empresa">- Exatus Administração de Serviços</span>
+                <span class="periodo"
+                  >📍 Porto Alegre - RS | 07/2022 - 10/2023</span
+                >
+              </div>
+              <ul>
+                <li>
+                  Lançamento e controle de benefícios, elaboração de planilhas e
+                  emissão de notas fiscais.
+                </li>
+                <li>
+                  Organização de documentos para órgãos públicos e processos
+                  trabalhistas.
+                </li>
+                <li>
+                  Atuação com prazos rígidos, reforçando disciplina, clareza e
+                  responsabilidade.
+                </li>
+              </ul>
+            </div>
+            <!--Formação-->
+            <section>
+              <h2 class="title">🎓 Formação</h2>
+              <hr />
+              <p>
+                Curso de Programação Front-End -
+                <abbr title="Serviço Nacional de Aprendizagem Comercial"
+                  >SENAC</abbr
+                >
+              </p>
+              <p>(05/2025 - em andamento)</p>
+              <p>
+                Tecnologia de Sistemas para Web - Instituto Federal do Rio
+                Grande do Sul (IFRS)
+              </p>
+              <p>(07/2025 - em andamento)</p>
+            </section>
+            <!--Certificados-->
+            <section>
+              <h2 class="title">📜 Certificados</h2>
+              <hr />
+              <ul>
+                <li>
+                  Formação HTML Web Developer - DIO - (51h) - (04/2025) -
+                  <a
+                    href="https://dio.me/certificate/YVKH0LBC"
+                    target="_blank"
+                    class="link"
+                    aria-label="Link do Certificado, abre em nova aba"
+                    >Ver certificado</a
+                  >
+                </li>
+              </ul>
+            </section>
+            <!--Idiomas-->
+            <footer aria-label="Informações de idiomas">
+              <h2 class="title">🌍 Idiomas</h2>
+              <hr />
+              <p>Português: Nativo</p>
+              <p>Inglês: Intermediário (leitura técnica)</p>
+            </footer>
+            <script>
+              const toggle = document.getElementById("dark-mode-toggle");
+              toggle.addEventListener("click", () => {
+                document.body.classList.toggle("dark-mode");
 
-        if (document.body.classList.contains("dark-mode")) {
-          toggle.textContent = "☀️ Modo Claro";
-        } else {
-          toggle.textContent = "🌙 Modo Escuro";
-        }
-      });
-    </script>
+                if (document.body.classList.contains("dark-mode")) {
+                  toggle.textContent = "☀️ Modo Claro";
+                } else {
+                  toggle.textContent = "🌙 Modo Escuro";
+                }
+              });
+            </script>
 
-    <script>
-      function baixarPDF() {
-        const elemento = document.getElementById("cv"); // a área que será convertida em PDF
+            <script>
+              function baixarPDF() {
+                const elemento = document.getElementById("cv"); // a área que será convertida em PDF
 
-        const options = {
-          margin: 0.8,
-          filename: "Herick_Quevedo_FrontEnd_Junior.pdf",
-          image: { type: "jpeg", quality: 0.98 },
-          html2canvas: { scale: 2 },
-          jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-        };
+                const options = {
+                  margin: 0.15,
+                  filename: "Herick_Quevedo_FrontEnd_Junior.pdf",
+                  image: { type: "jpeg", quality: 0.98 },
+                  html2canvas: { scale: 2 },
+                  jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
+                };
 
-        html2pdf().set(options).from(elemento).save();
-      }
-    </script>
-  </body>
-</html>
-<!--
+                html2pdf().set(options).from(elemento).save();
+              }
+            </script>
+            <!--
 Palavras-chave: Front-end, Desenvolvedor Júnior, HTML, CSS, JavaScript, Responsivo, Git, GitHub, Figma, UI, UX, DOM, LocalStorage, Acessibilidade, Projetos, Freelancer.
 -->
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
